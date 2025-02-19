@@ -30,9 +30,19 @@ public class BaseController : MonoBehaviour
     protected virtual void Update() 
     { }
 
-    private void Movement() 
+    protected virtual void FixedUpdate()
     {
-
+        Movement(MoveDirection);
+    }
+    private void Movement(Vector2 direction) 
+    {
+        // 방향벡터 * 숫자 = 크기(속도)
+        direction = direction * 5;
+        
+        // rigidbody의 속도
+        // direction에 따라 속도가 정해짐
+        // 만약 (1,0)이면 속도는 1
+        _rigidbody.velocity = direction;
     }
 
     private void Rotate() 
