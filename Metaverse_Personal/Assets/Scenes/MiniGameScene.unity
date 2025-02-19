@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 689717250}
   - component: {fileID: 689717251}
   m_Layer: 5
-  m_Name: GameUI
+  m_Name: MiniGameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,10 +483,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 689717248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dced09581790cd40b25e4f87a9dec68, type: 3}
+  m_Script: {fileID: 11500000, guid: 63ee82c9965986e45ba91f4e154516f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiState: 1
 --- !u!1 &808506754
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +834,7 @@ GameObject:
   - component: {fileID: 1384342769}
   - component: {fileID: 1384342770}
   m_Layer: 5
-  m_Name: HomeUI
+  m_Name: MiniGameHomeUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -881,10 +880,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1384342767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dced09581790cd40b25e4f87a9dec68, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e3924630935a9b4d9cb8e7e6009cb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiState: 0
 --- !u!1 &1665619605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1163,7 @@ GameObject:
   - component: {fileID: 1958196347}
   - component: {fileID: 1958196348}
   m_Layer: 5
-  m_Name: ExplainUI
+  m_Name: MiniGameExplainUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1211,10 +1209,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1958196345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dced09581790cd40b25e4f87a9dec68, type: 3}
+  m_Script: {fileID: 11500000, guid: 918500c86a2896e41b9345006893b97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiState: 2
 --- !u!1 &2046568071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,7 +1224,7 @@ GameObject:
   - component: {fileID: 2046568073}
   - component: {fileID: 2046568074}
   m_Layer: 5
-  m_Name: GameOverUI
+  m_Name: MiniGameOverUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1273,10 +1270,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2046568071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dced09581790cd40b25e4f87a9dec68, type: 3}
+  m_Script: {fileID: 11500000, guid: 630f18b42420eca4cbfd977591450fe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiState: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
