@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class MiniGameUI : BaseUI
 {
+    [SerializeField] private UIState uiState;
+
+    
     protected override UIState GetUIState()
     {
-        throw new System.NotImplementedException();
+        return uiState;
     }
 
 }
