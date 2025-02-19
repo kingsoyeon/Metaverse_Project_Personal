@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-enum UIState
+public enum UIState
 {
     Home,
     Game,
