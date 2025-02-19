@@ -8,7 +8,7 @@ public class BaseController : MonoBehaviour
     protected Rigidbody2D _rigidbody;
 
     // 스프라이트 렌더러 
-    [SerializeField] private SpriteRenderer characterRendere;
+    [SerializeField] private SpriteRenderer characterRenderer;
 
     // 이동 방향
     protected Vector2 moveDirection = Vector2.zero;
@@ -28,7 +28,9 @@ public class BaseController : MonoBehaviour
     { }
 
     protected virtual void Update() 
-    { }
+    {
+        Rotate(lookDirection);
+    }
 
     protected virtual void FixedUpdate()
     {
@@ -45,8 +47,13 @@ public class BaseController : MonoBehaviour
         _rigidbody.velocity = direction;
     }
 
-    private void Rotate() 
+    private void Rotate(Vector2 direction) 
     {
+        float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        // 90f가 넘는다면 왼편을 바라봄
+        bool isLeft = Mathf.Abs(rotZ) > 90f;
+
+        characterRenderer.flipX = isLeft;
     }
     
 }
