@@ -87,12 +87,6 @@ public class UIManager : MonoBehaviour
         ChangeState(UIState.MiniGameOver);
     }
 
-
-
-    // 시작 버튼
     
-    // 나가기 버튼
-    
-    // 재시작 버튼
 
 }

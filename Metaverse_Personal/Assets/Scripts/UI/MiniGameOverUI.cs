@@ -13,6 +13,16 @@ public class MiniGameOverUI : BaseUI
     {
         base.Init(uiManager);
     }
+
+
+    
+
+    // 미니게임 나가기 버튼
+
+    public void MiniEndButton() { }
+
+    // 미니게임 재시작 버튼
+    public void MiniRestartButton() { }
 }
     
 

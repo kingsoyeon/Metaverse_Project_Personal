@@ -13,4 +13,6 @@ public class MiniGameUI : BaseUI
     {
         base.Init(uiManager);
     }
+
+    // 플래피 버드 점수 UI
 }

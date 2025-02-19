@@ -13,4 +13,10 @@ public class MiniGameHomeUI : BaseUI
     {
         base.Init(uiManager);
     }
+
+    // 미니게임 시작 버튼
+    public void MiniStartButton() { }
+
+    // 미니게임 나가기 버튼
+    public void MiniEndButton() { }
 }
