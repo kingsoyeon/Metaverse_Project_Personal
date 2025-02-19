@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseUI : MonoBehaviour
+public abstract class BaseUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    
+    protected UIManager uiManager;
+
+    public virtual void Init(UIManager uiManager)
+    {
+        this.uiManager = uiManager;
+    }
+
 }
