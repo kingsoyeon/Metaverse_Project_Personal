@@ -14,7 +14,7 @@ public class AnimationHandler : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
-    protected virtual void Move(Vector2 obj)
+    public void Move(Vector2 obj)
     {
         // 벡터의 길이가 0.5보다 크면 움직이는 애니메이션 출력
         animator.SetBool(IsMoving, obj.magnitude>.5f);

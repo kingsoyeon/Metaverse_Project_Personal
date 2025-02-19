@@ -7,8 +7,11 @@ public class BaseController : MonoBehaviour
     
     protected Rigidbody2D _rigidbody;
 
+    protected AnimationHandler animationHandler;
+
     // 스프라이트 렌더러 
     [SerializeField] private SpriteRenderer characterRenderer;
+
 
     // 이동 방향
     protected Vector2 moveDirection = Vector2.zero;
@@ -23,6 +26,8 @@ public class BaseController : MonoBehaviour
     {
         // 자식클래스들은 모두 rigidbody를 가짐
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        animationHandler = GetComponent<AnimationHandler>();
     }
     protected virtual void Start() 
     { }
@@ -39,6 +44,8 @@ public class BaseController : MonoBehaviour
     }
 
     protected virtual void HandleInput() { }
+
+
     private void Movement(Vector2 direction) 
     {
         // 방향벡터 * 숫자 = 크기(속도)
@@ -48,6 +55,9 @@ public class BaseController : MonoBehaviour
         // direction에 따라 속도가 정해짐
         // 만약 (1,0)이면 속도는 1
         _rigidbody.velocity = direction;
+
+        // direction값 애니메이션핸들러에 전달
+        animationHandler.Move(direction);
     }
 
     private void Rotate(Vector2 direction) 
