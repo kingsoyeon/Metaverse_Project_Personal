@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected Rigidbody2D _rigidbody;
 
-    // Update is called once per frame
-    void Update()
+    // 스프라이트 렌더러 
+    [SerializeField] private SpriteRenderer characterRendere;
+
+    // 이동 방향
+    protected Vector2 moveDirection = Vector2.zero;
+    public Vector2 MoveDirection { get { return moveDirection; } }
+
+    // 바라보는 방향
+    protected Vector2 lookDirection = Vector2.zero;
+    public Vector2 LookDirection { get { return lookDirection; } }
+
+
+    protected virtual void Awake() 
     {
-        
+
     }
+    protected virtual void Start() 
+    { }
+
+    protected virtual void Update() 
+    { }
+    
 }
