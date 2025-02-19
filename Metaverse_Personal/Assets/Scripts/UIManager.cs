@@ -2,13 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+enum UIState
+{
+    Home,
+    Game,
+    Explain,
+    GameOver
+}
 public class UIManager : MonoBehaviour
 {
-   enum UIState
+    // ΩÃ±€≈Ê
+    static UIManager instance;
+    public static UIManager Instance
     {
-        Home,
-        Game,
-        Explain,
-        GameOver
+        get
+        {
+            return instance;
+        }
     }
 }
