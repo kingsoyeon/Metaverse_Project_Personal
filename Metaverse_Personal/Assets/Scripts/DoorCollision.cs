@@ -15,9 +15,14 @@ public class DoorCollision : MonoBehaviour
                 SceneManager.LoadScene("HouseScene");
             }
             else if (SceneManager.GetActiveScene().name == "HouseScene")
-              {
+            {
             SceneManager.LoadScene("SampleScene");
         
+            }
+
+        if (CompareTag("Bed"))
+        {
+            // UI È°¼ºÈ­
         }
     }
 }

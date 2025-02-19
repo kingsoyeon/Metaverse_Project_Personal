@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public enum UIState
 {
     // 메인 UI
-
+    
 
     // 미니게임 UI
     MinigameHome,
@@ -17,10 +17,14 @@ public enum UIState
 }
 public class UIManager : MonoBehaviour
 {
+    // 침대에 가까이 가면 뜨는 UI
+    
+
     MiniGameHomeUI miniHomeUI;
     MiniGameUI miniGameUI;
     MiniGameExplainUI miniExplainUI;
     MiniGameOverUI miniGameOverUI;
+
 
     private UIState currentState;
 
@@ -57,6 +61,7 @@ public class UIManager : MonoBehaviour
         miniGameOverUI.Init(this);
 
     }
+   
 
     // UI 변경
     public void ChangeState(UIState state)
