@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
+    
     protected Rigidbody2D _rigidbody;
 
     // 스프라이트 렌더러 
@@ -20,12 +21,22 @@ public class BaseController : MonoBehaviour
 
     protected virtual void Awake() 
     {
-
+        // 자식클래스들은 모두 rigidbody를 가짐
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
     protected virtual void Start() 
     { }
 
     protected virtual void Update() 
     { }
+
+    private void Movement() 
+    {
+
+    }
+
+    private void Rotate() 
+    {
+    }
     
 }
