@@ -20,9 +20,5 @@ public class DoorCollision : MonoBehaviour
         
             }
 
-        if (CompareTag("Bed"))
-        {
-            // UI È°¼ºÈ­
-        }
     }
 }
