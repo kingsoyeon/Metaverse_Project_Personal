@@ -30,6 +30,7 @@ public class BaseController : MonoBehaviour
     protected virtual void Update() 
     {
         Rotate(lookDirection);
+        HandleInput();
     }
 
     protected virtual void FixedUpdate()
