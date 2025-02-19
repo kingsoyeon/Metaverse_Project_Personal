@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniGameUI : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class MiniGameUI : BaseUI
 
-    // Update is called once per frame
-    void Update()
+{
+    protected override UIState GetUIState()
     {
-        
+        throw new System.NotImplementedException();
+    }
+    public override void Init(UIManager uiManager)
+    {
+        base.Init(uiManager);
     }
 }
