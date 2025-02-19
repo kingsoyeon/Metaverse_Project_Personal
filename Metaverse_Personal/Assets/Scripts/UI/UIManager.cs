@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public enum UIState
@@ -86,6 +88,13 @@ public class UIManager : MonoBehaviour
     {
         ChangeState(UIState.MiniGameOver);
     }
+
+    // 미니게임 종료 
+
+   // public void MiniGameExit() 
+    
+       // SceneManager.
+    
 
     
 
