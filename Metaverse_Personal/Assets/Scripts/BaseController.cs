@@ -36,6 +36,8 @@ public class BaseController : MonoBehaviour
     {
         Movement(MoveDirection);
     }
+
+    protected virtual void HandleInput() { }
     private void Movement(Vector2 direction) 
     {
         // 방향벡터 * 숫자 = 크기(속도)
