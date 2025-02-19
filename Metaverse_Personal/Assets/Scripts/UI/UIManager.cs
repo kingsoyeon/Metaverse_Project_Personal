@@ -50,12 +50,30 @@ public class UIManager : MonoBehaviour
 
         miniGameOverUI = GetComponentInChildren<MiniGameOverUI>(true);
         miniGameOverUI.Init(this);
-\ 
+
     }
 
+    // UI 변경
     public void ChangeState(UIState state)
     {
-        
+        currentState = state;
+        miniHomeUI.SetActive(currentState);
+        miniGameUI.SetActive(currentState);
+        miniExplainUI.SetActive(currentState);
+        miniGameOverUI.SetActive(currentState);
+
     }
+
+    // 미니게임 시작
+    public void MiniGameStart() { }
+
+    // 미니게임 오버
+    public void MiniGameOver() { }
+
+    // 시작 버튼
+    
+    // 나가기 버튼
+    
+    // 재시작 버튼
 
 }
