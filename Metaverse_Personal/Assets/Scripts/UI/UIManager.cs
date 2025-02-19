@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -65,37 +64,44 @@ public class UIManager : MonoBehaviour
         miniGameOverUI.SetActive(currentState);
     }
 
-    // 미니게임 실행 UI
+    // 미니게임을 실행했을 때 뜨는 UI
     public void MiniGameHome() 
     {
         ChangeState(UIState.MinigameHome);
     }
 
-    // 미니게임 시작 UI
+    // 메인 관련 UI
+
+
+    // 미니게임 관련 UI
+    // 미니게임 시작을 누르면 뜨는 UI (게임 중 ui)
     public void MiniGameStart() 
     {
         ChangeState(UIState.MiniGame);
     }
 
-    // 미니게임 설명 UI
+    // 미니게임 설명화면 UI
     public void MiniGameExplain()
     {
         ChangeState(UIState.MiniGameExplain);
     }
 
-    // 미니게임 오버 UI
+    // 미니게임 오버됐을 때 UI (스코어, 최고점수, 다시하기, 종료)
     public void MiniGameOver() 
     {
         ChangeState(UIState.MiniGameOver);
     }
 
-    // 미니게임 종료 
+    // 미니게임 종료 - 하우스씬으로 다시 돌아감
+    public void MiniGameExit() 
+    {
+        SceneManager.LoadScene("HouseScene");
+    }
 
-   // public void MiniGameExit() 
+    // 미니게임 재시작 - 미니게임시작됨
+    public void MiniGameReStart()
+    {
+        ChangeState(UIState.MiniGame);
+    }
     
-       // SceneManager.
-    
-
-    
-
 }
