@@ -12,9 +12,7 @@ public enum UIState
 }
 public class UIManager : MonoBehaviour
 {
-    // MainUI¿Í MiniGameUIÀÇ ¸®½ºÆ®
-    private List<MainUI> MainUIList = new List<MainUI>();
-    private List<MiniGameUI> MiniGameUIList = new List<MiniGameUI>();
+   
 
     // ½Ì±ÛÅæ
     static UIManager instance;
@@ -29,11 +27,12 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
+        
     }
 
-
-
-
+    public void ChangeState(UIState state)
+    {
+        
+    }
 
 }
