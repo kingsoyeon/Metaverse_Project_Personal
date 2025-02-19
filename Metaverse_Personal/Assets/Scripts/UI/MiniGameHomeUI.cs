@@ -10,10 +10,7 @@ public class MiniGameHomeUI : BaseUI
     [SerializeField] private Button explainButton;
     [SerializeField] private Button exitButton;
 
-    protected override UIState GetUIState()
-    {
-        return UIState.MinigameHome;
-    }
+    
 
     public override void Init(UIManager uiManager)
     {
@@ -23,12 +20,17 @@ public class MiniGameHomeUI : BaseUI
         explainButton = transform.Find("HowToPlay").GetComponent<Button>();
         exitButton = transform.Find("ExitButton").GetComponent<Button>();
 
+        
 
         startButton.onClick.AddListener(OnClickStartButton);
-        exitButton.onClick.AddListener(OnClickExplainButton);
+        explainButton.onClick.AddListener(OnClickExplainButton);
         exitButton.onClick.AddListener(OnClickExitButton);
     }
 
+    protected override UIState GetUIState()
+    {
+        return UIState.MinigameHome;
+    }
     // 미니게임 시작버튼 - 미니게임 화면으로 이동
     void OnClickStartButton()
     {
@@ -43,6 +45,7 @@ public class MiniGameHomeUI : BaseUI
     // 미니게임 종료버튼 - 미니게임 씬에서 나감
     void OnClickExitButton()
     {
-       // houseScene 호출
+        Debug.Log("Exit button clicked!");
+        uiManager.MiniGameExit();
     }
 }

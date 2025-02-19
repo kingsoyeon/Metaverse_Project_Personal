@@ -32,13 +32,17 @@ public class UIManager : MonoBehaviour
     {
         get
         {
+            if (instance == null) { instance = FindObjectOfType<UIManager>(); }
             return instance;
         }
     }
 
     private void Awake()
     {
-        instance = this;
+       
+        // 싱글톤 씬이 넘어가도 없어지지않도록
+        if(Instance == null) { instance = this; DontDestroyOnLoad(gameObject); }
+        else { Destroy(gameObject); return; }
 
         miniHomeUI = GetComponentInChildren<MiniGameHomeUI>(true);
         miniHomeUI.Init(this);
