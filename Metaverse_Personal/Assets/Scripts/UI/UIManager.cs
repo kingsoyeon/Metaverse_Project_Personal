@@ -61,14 +61,33 @@ public class UIManager : MonoBehaviour
         miniGameUI.SetActive(currentState);
         miniExplainUI.SetActive(currentState);
         miniGameOverUI.SetActive(currentState);
-
     }
 
-    // 미니게임 시작
-    public void MiniGameStart() { }
+    // 미니게임 실행 UI
+    public void MiniGameHome() 
+    {
+        ChangeState(UIState.MinigameHome);
+    }
 
-    // 미니게임 오버
-    public void MiniGameOver() { }
+    // 미니게임 시작 UI
+    public void MiniGameStart() 
+    {
+        ChangeState(UIState.MiniGame);
+    }
+
+    // 미니게임 설명 UI
+    public void MiniGameExplain()
+    {
+        ChangeState(UIState.MiniGameExplain);
+    }
+
+    // 미니게임 오버 UI
+    public void MiniGameOver() 
+    {
+        ChangeState(UIState.MiniGameOver);
+    }
+
+
 
     // 시작 버튼
     
