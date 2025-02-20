@@ -9,7 +9,7 @@ public class PlayerController_MiniGame : MonoBehaviour
     Rigidbody2D _rigidbody = null;
 
     public float jumpForce = 6f;
-    public float forwardSpeed = 3f;
+    public float forwardSpeed = 11f;
     public bool isDead = false;
     float deathCooldown = 0f;
 
