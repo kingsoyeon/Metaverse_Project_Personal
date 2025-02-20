@@ -19,6 +19,8 @@ public class PlayerController_MiniGame : MonoBehaviour
 
     public GameManager gameManager = null;
 
+    private Vector3 startPosition;
+
     void Start()
     {
         gameManager = GameManager.Instance;
@@ -34,6 +36,8 @@ public class PlayerController_MiniGame : MonoBehaviour
         {
             Debug.LogError("Rigidbody Null");
         }
+
+        startPosition = transform.position;
     }
 
 
@@ -95,5 +99,10 @@ public class PlayerController_MiniGame : MonoBehaviour
         isDead = true;
         deathCooldown = 1f;
         gameManager.GameOver();
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = startPosition;
     }
 }

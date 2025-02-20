@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public UIManager uiManager;
+    public PlayerController_MiniGame playerMinigame;
 
     private bool isGameOver = false;
 
@@ -36,6 +37,11 @@ public class GameManager : MonoBehaviour
         uiManager.UpdateScore(currentScore);
         uiManager.MiniGameStart();
         Time.timeScale = 1;
+
+        if (playerMinigame != null)
+        {
+            playerMinigame.ResetPosition(); //  플레이어 위치 초기화
+        }
 
     }
 
