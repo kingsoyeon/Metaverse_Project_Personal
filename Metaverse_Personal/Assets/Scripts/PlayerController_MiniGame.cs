@@ -17,8 +17,11 @@ public class PlayerController_MiniGame : MonoBehaviour
 
     public bool godMode = false;
 
+    public GameManager gameManager = null;
+
     void Start()
     {
+        gameManager = GameManager.Instance;
         animator = transform.GetComponentInChildren<Animator>();
         _rigidbody = transform.GetComponent<Rigidbody2D>();
 
@@ -91,5 +94,6 @@ public class PlayerController_MiniGame : MonoBehaviour
         animator.SetInteger("isDead", 1);
         isDead = true;
         deathCooldown = 1f;
+        //gameManager.GameOver();
     }
 }

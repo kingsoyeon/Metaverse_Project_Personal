@@ -16,25 +16,25 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    private int cureentScore = 0;
+    private int currentScore = 0;
 
     // 게임 오버
     public void GameOver()
     {
-
+        uiManager.MiniGameOver();
         
     }
 
     // 게임 재시작
     public void GameRestart()
     {
-        
+       
 
     }
 
     // 점수 추가
     public void AddScore(int score)
     {
-        cureentScore += score;
+        currentScore += score;
     }
 }

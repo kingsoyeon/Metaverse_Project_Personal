@@ -1,10 +1,13 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Obstacles : MonoBehaviour
 {
+    GameManager gameManager;
     
     public float highPosY = 1f;
     public float lowPosY = -1f;
@@ -31,7 +34,13 @@ public class Obstacles : MonoBehaviour
 
 
     public float widthPadding = 10f;
-    
+
+
+    public void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
+
     // 파이프 랜덤생성
     public Vector3 RandomPipe(Vector3 lastPositon, int pipeCount)
     {
@@ -55,8 +64,6 @@ public class Obstacles : MonoBehaviour
 
         return pipePosition;
 
-
-
         // 구현예정(보라-노랑 번갈아가며 출현) 
         //if (isPurple)
         // {
@@ -64,5 +71,12 @@ public class Obstacles : MonoBehaviour
         // bottomPipe_Yellow.localPosition = new Vector3(0, -halfHoleSize);
         //isPurple = false;
         //}
+  
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        PlayerController_MiniGame player = collision.GetComponent<PlayerController_MiniGame>();
+        if (player != null) { gameManager.AddScore(1); }
+    }
+
 }
