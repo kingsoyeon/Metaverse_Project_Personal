@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Loop : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int pipeCount = 0;
+    public Vector3 pipeLastPosition = Vector3.zero;
+
     void Start()
     {
-        
+        Obstacles[] obstacles = GameObject.FindObjectsOfType<Obstacles>();
+
+        pipeLastPosition = obstacles[0].transform.position;
+        pipeCount = obstacles.Length;
+
+        // 파이프 반복 랜덤 생성
+        for (int i=0; i<pipeCount; i++)
+        {
+            pipeLastPosition = obstacles[i].RandomPipe(pipeLastPosition, pipeCount);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
