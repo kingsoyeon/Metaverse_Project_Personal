@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 
@@ -27,34 +28,40 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject explainUI;
     [SerializeField] private GameObject gameOverUI;
 
+
+
     public MiniGameHomeUI miniHomeUI;
     public MiniGameUI miniGameUI;
     public MiniGameExplainUI miniExplainUI;
     public MiniGameOverUI miniGameOverUI;
 
 
+
     private UIState currentState;
 
+    // 점수, 최고점수
+    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI BestScoreText;
 
 
     // 싱글톤
     //static UIManager instance;
     //public static UIManager Instance
-   // {
-       // get
-       // {
-          //  if (instance == null) { instance = FindObjectOfType<UIManager>(); }
-          //  return instance;
-      //  }
-   // }
+    // {
+    // get
+    // {
+    //  if (instance == null) { instance = FindObjectOfType<UIManager>(); }
+    //  return instance;
+    //  }
+    // }
 
-   // MiniGameHomeUI homeUI = null;
+    // MiniGameHomeUI homeUI = null;
 
-   // MiniGameUI gameUI = null;
-  //  MiniGameOverUI overUI = null;
-  //  MiniGameExplainUI explainUI = null;
+    // MiniGameUI gameUI = null;
+    //  MiniGameOverUI overUI = null;
+    //  MiniGameExplainUI explainUI = null;
 
-    
+
 
     private void Awake()
     {
@@ -152,5 +159,10 @@ public class UIManager : MonoBehaviour
     {
         ChangeState(UIState.MiniGame);
     }
-    
+
+    // ui에 점수 업데이트 반영
+    public void UpdateScore(int score)
+    {
+        ScoreText.text = score.ToString();
+    }
 }

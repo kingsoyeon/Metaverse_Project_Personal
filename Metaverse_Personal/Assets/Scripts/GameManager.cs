@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
+
     public static GameManager Instance;
     public UIManager uiManager;
-    
+
     // ΩÃ±€≈Ê
     private void Awake()
     {
@@ -22,13 +22,13 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         uiManager.MiniGameOver();
-        
+
     }
 
     // ∞‘¿” ¿ÁΩ√¿€
     public void GameRestart()
     {
-       
+
 
     }
 
@@ -36,5 +36,10 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         currentScore += score;
+
+      
+            
+            uiManager.UpdateScore(currentScore);
+        
     }
 }
