@@ -7,23 +7,30 @@ using UnityEngine.SceneManagement;
 public enum UIState
 {
     // 메인 UI
-    
+
 
     // 미니게임 UI
-    MinigameHome,
-    MiniGame,
-    MiniGameExplain,
-    MiniGameOver
+
+   
+
+    MiniGameHome, // 미니게임 홈
+    MiniGame, // 미니게임 화면
+    MiniGameExplain, // 미니게임 설명화면
+    MiniGameOver // 미니게임 오버
 }
 public class UIManager : MonoBehaviour
 {
     // 침대에 가까이 가면 뜨는 UI
-    
 
-    MiniGameHomeUI miniHomeUI;
-    MiniGameUI miniGameUI;
-    MiniGameExplainUI miniExplainUI;
-    MiniGameOverUI miniGameOverUI;
+    [SerializeField] private GameObject homeUI;
+    [SerializeField] private GameObject gameUI;
+    [SerializeField] private GameObject explainUI;
+    [SerializeField] private GameObject gameOverUI;
+
+    public MiniGameHomeUI miniHomeUI;
+    public MiniGameUI miniGameUI;
+    public MiniGameExplainUI miniExplainUI;
+    public MiniGameOverUI miniGameOverUI;
 
 
     private UIState currentState;
@@ -31,52 +38,85 @@ public class UIManager : MonoBehaviour
 
 
     // 싱글톤
-    static UIManager instance;
-    public static UIManager Instance
-    {
-        get
-        {
-            if (instance == null) { instance = FindObjectOfType<UIManager>(); }
-            return instance;
-        }
-    }
+    //static UIManager instance;
+    //public static UIManager Instance
+   // {
+       // get
+       // {
+          //  if (instance == null) { instance = FindObjectOfType<UIManager>(); }
+          //  return instance;
+      //  }
+   // }
+
+   // MiniGameHomeUI homeUI = null;
+
+   // MiniGameUI gameUI = null;
+  //  MiniGameOverUI overUI = null;
+  //  MiniGameExplainUI explainUI = null;
+
+    
 
     private void Awake()
     {
-       
+        //Debug.Log("UIManager Awake");
         // 싱글톤 씬이 넘어가도 없어지지않도록
-        if(Instance == null) { instance = this; DontDestroyOnLoad(gameObject); }
-        else { Destroy(gameObject); return; }
+       // if (Instance == null) { instance = this; DontDestroyOnLoad(gameObject); }
+        //else { Destroy(gameObject); return; }
 
-        miniHomeUI = GetComponentInChildren<MiniGameHomeUI>(true);
-        miniHomeUI.Init(this);
+       // miniHomeUI = GetComponentInChildren<MiniGameHomeUI>(true);
+       // miniHomeUI.Init(this);
 
-        miniGameUI = GetComponentInChildren<MiniGameUI>(true);
-        miniGameUI.Init(this);
+       // miniGameUI = GetComponentInChildren<MiniGameUI>(true);
+      //  miniGameUI.Init(this);
 
-        miniExplainUI = GetComponentInChildren<MiniGameExplainUI>(true);
-        miniExplainUI.Init(this);
+       // miniExplainUI = GetComponentInChildren<MiniGameExplainUI>(true);
+       // miniExplainUI.Init(this);
 
-        miniGameOverUI = GetComponentInChildren<MiniGameOverUI>(true);
-        miniGameOverUI.Init(this);
+       // miniGameOverUI = GetComponentInChildren<MiniGameOverUI>(true);
+       // miniGameOverUI.Init(this);
+
+        ChangeState(UIState.MiniGameHome);
 
     }
-   
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "MiniGameScene")
+        {
+            miniHomeUI = homeUI.GetComponent<MiniGameHomeUI>();
+            miniGameUI = gameUI.GetComponent<MiniGameUI>();
+            miniExplainUI = explainUI.GetComponent<MiniGameExplainUI>();
+            miniGameOverUI = gameOverUI.GetComponent<MiniGameOverUI>();
+
+            miniHomeUI.Init(this);
+            miniGameUI.Init(this);
+            miniExplainUI.Init(this);
+            miniGameOverUI.Init(this);
+
+            ChangeState(UIState.MiniGameHome);
+        }
+    }
+
 
     // UI 변경
     public void ChangeState(UIState state)
     {
         currentState = state;
-        miniHomeUI.SetActive(currentState);
-        miniGameUI.SetActive(currentState);
-        miniExplainUI.SetActive(currentState);
-        miniGameOverUI.SetActive(currentState);
+
+        // miniHomeUI.gameObject.SetActive(state == UIState.MinigameHome);
+        //miniGameUI.gameObject.SetActive(state == UIState.MiniGame);
+        // miniExplainUI.gameObject.SetActive(state == UIState.MiniGameExplain);
+        // miniGameOverUI.gameObject.SetActive(state == UIState.MiniGameOver);
+
+        homeUI.SetActive(state == UIState.MiniGameHome);
+        gameUI.SetActive(state == UIState.MiniGame);
+        explainUI.SetActive(state == UIState.MiniGameExplain);
+        gameOverUI.SetActive(state == UIState.MiniGameOver);
     }
 
     // 미니게임을 실행했을 때 뜨는 UI
     public void MiniGameHome() 
     {
-        ChangeState(UIState.MinigameHome);
+        ChangeState(UIState.MiniGameHome);
     }
 
     // 메인 관련 UI

@@ -9,7 +9,7 @@ public class SleepUI : BaseUI
 {
     protected override UIState GetUIState()
     {
-        return UIState.MinigameHome;
+        return UIState.MiniGameHome;
     }
 
     // Ä§´ë ¸»Ç³¼± UI

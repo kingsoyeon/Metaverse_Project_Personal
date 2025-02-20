@@ -15,7 +15,12 @@ public class MiniGameHomeUI : BaseUI
     public override void Init(UIManager uiManager)
     {
         base.Init(uiManager);
-        
+
+        if (uiManager == null)
+        {
+            Debug.LogError("UIManager is not assigned!");
+        }
+
         startButton = transform.Find("StartButton").GetComponent<Button>();
         explainButton = transform.Find("HowToPlay").GetComponent<Button>();
         exitButton = transform.Find("ExitButton").GetComponent<Button>();
@@ -29,7 +34,7 @@ public class MiniGameHomeUI : BaseUI
 
     protected override UIState GetUIState()
     {
-        return UIState.MinigameHome;
+        return UIState.MiniGameHome;
     }
     // 미니게임 시작버튼 - 미니게임 화면으로 이동
     void OnClickStartButton()
@@ -45,7 +50,7 @@ public class MiniGameHomeUI : BaseUI
     // 미니게임 종료버튼 - 미니게임 씬에서 나감
     void OnClickExitButton()
     {
-        Debug.Log("Exit button clicked!");
+        
         uiManager.MiniGameExit();
     }
 }
