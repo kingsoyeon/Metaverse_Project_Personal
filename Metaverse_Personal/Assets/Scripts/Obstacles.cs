@@ -7,32 +7,52 @@ public class Obstacles : MonoBehaviour
 {
     
     public float highPosY = 1f;
-    public float lowPosY = -1f;
+    public float lowPosY = -9f;
 
-    // 파이프 사이 간격 최대/최소
-    public float holdSizeMin = 1f;
-    public float holdSizeMax = 3f;
+    // 파이프 위아래 사이 간격 최대/최소
+    public float holdSizeMin = 5f;
+    public float holdSizeMax = 9f;
+
+    // 파이프 양옆 간격 최대/최소
+    public float minWidthPadding = 8f;
+    public float maxWidthPadding = 12f;
 
     // 파이프 위아래
     public Transform topPipe_Purple;
-    public Transform topPipe_Yellow;
+    //public Transform topPipe_Yellow;
     public Transform bottomPipe_Purple;
-    public Transform bottomPipe_Yellow;
+    //public Transform bottomPipe_Yellow;
+
+    //퍼플/노랑 번갈아가면서
+    public bool isPurple = true;
 
 
-    public float widthPadding = 4f;
+    public float widthPadding = 10f;
     
     // 파이프 랜덤생성
     public Vector3 RandomPipe(Vector3 lastPositon, int pipeCount)
     {
         float holeSize = Random.Range(holdSizeMin, holdSizeMax);
         float halfHoleSize = holeSize / 2f;
-        topPipe_Purple.localPosition = new Vector3(0, halfHoleSize);
-        bottomPipe_Purple.localPosition = new Vector3(0, -halfHoleSize);
-        topPipe_Yellow.localPosition = new Vector3(0, halfHoleSize);
-        bottomPipe_Yellow.localPosition = new Vector3(0, -halfHoleSize);
+        //if (isPurple)
+       // {
+           // topPipe_Yellow.localPosition = new Vector3(0, halfHoleSize);
+           // bottomPipe_Yellow.localPosition = new Vector3(0, -halfHoleSize);
+            //isPurple = false;
+        //}
+       
+        
+            topPipe_Purple.localPosition = new Vector3(0, halfHoleSize);
+            bottomPipe_Purple.localPosition = new Vector3(0, -halfHoleSize);
+        
 
-        Vector3 pipePosition = lastPositon + new Vector3(widthPadding, 0);
+        // 파이프 양옆간격 랜덤
+        float randomWidthPadding = Random.Range(minWidthPadding, maxWidthPadding);
+
+        // 파이프 X좌표 포지션
+        Vector3 pipePosition = lastPositon + new Vector3(randomWidthPadding, 0);
+
+        // 파이프 y좌표 랜덤
         pipePosition.y = Random.Range(lowPosY, highPosY);
 
         transform.position = pipePosition;
