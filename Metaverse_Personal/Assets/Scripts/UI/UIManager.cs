@@ -28,6 +28,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject explainUI;
     [SerializeField] private GameObject gameOverUI;
 
+    // 파이프, 플레이어
+    //[SerializeField] private GameObject Obstacles;
+    //[SerializeField] private GameObject player;
+
+
 
 
     public MiniGameHomeUI miniHomeUI;
@@ -118,6 +123,10 @@ public class UIManager : MonoBehaviour
         gameUI.SetActive(state == UIState.MiniGame);
         explainUI.SetActive(state == UIState.MiniGameExplain);
         gameOverUI.SetActive(state == UIState.MiniGameOver);
+
+
+        //Obstacles.SetActive(state == UIState.MiniGame);
+        //player.SetActive(state == UIState.MiniGame);
     }
 
     // 미니게임을 실행했을 때 뜨는 UI
