@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // ΩÃ±€≈Ê
     public static GameManager Instance;
     
+    // ΩÃ±€≈Ê
+    private void Awake()
+    {
+
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
 }
