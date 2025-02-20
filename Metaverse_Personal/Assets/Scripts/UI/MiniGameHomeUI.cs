@@ -18,7 +18,7 @@ public class MiniGameHomeUI : BaseUI
 
         if (uiManager == null)
         {
-            Debug.LogError("UIManager is not assigned!");
+            Debug.LogError("null");
         }
 
         startButton = transform.Find("StartButton").GetComponent<Button>();

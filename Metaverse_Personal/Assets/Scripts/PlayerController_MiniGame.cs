@@ -94,6 +94,6 @@ public class PlayerController_MiniGame : MonoBehaviour
         animator.SetInteger("isDead", 1);
         isDead = true;
         deathCooldown = 1f;
-        //gameManager.GameOver();
+        gameManager.GameOver();
     }
 }
