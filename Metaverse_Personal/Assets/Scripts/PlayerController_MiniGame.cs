@@ -8,12 +8,12 @@ public class PlayerController_MiniGame : MonoBehaviour
     Animator animator = null;
     Rigidbody2D _rigidbody = null;
 
-    public float flapForce = 6f;
+    public float jumpForce = 6f;
     public float forwardSpeed = 3f;
     public bool isDead = false;
     float deathCooldown = 0f;
 
-    bool isFlap = false;
+    bool isJump = false;
 
     public bool godMode = false;
 
@@ -24,14 +24,15 @@ public class PlayerController_MiniGame : MonoBehaviour
 
         if (animator == null)
         {
-            Debug.LogError("Not Founded Animator");
+            Debug.LogError("Animator Null");
         }
 
         if (_rigidbody == null)
         {
-            Debug.LogError("Not Founded Rigidbody");
+            Debug.LogError("Rigidbody Null");
         }
     }
+
 
     void Update()
     {
@@ -53,7 +54,7 @@ public class PlayerController_MiniGame : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
-                isFlap = true;
+                isJump = true;
             }
         }
     }
@@ -66,10 +67,10 @@ public class PlayerController_MiniGame : MonoBehaviour
         Vector3 velocity = _rigidbody.velocity;
         velocity.x = forwardSpeed;
 
-        if (isFlap)
+        if (isJump)
         {
-            velocity.y += flapForce;
-            isFlap = false;
+            velocity.y += jumpForce;
+            isJump = false;
         }
 
         _rigidbody.velocity = velocity;
@@ -87,7 +88,7 @@ public class PlayerController_MiniGame : MonoBehaviour
         if (isDead)
             return;
 
-        animator.SetInteger("IsDie", 1);
+        animator.SetInteger("isDead", 1);
         isDead = true;
         deathCooldown = 1f;
     }

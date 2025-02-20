@@ -101,13 +101,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highPosY: 1
   lowPosY: -1
-  holdSizeMin: 4
-  holdSizeMax: 6
+  holdSizeMin: 2
+  holdSizeMax: 4
   minWidthPadding: 8
   maxWidthPadding: 12
   topPipe_Purple: {fileID: 186300329458546121}
   bottomPipe_Purple: {fileID: 9033580757284190982}
-  isPurple: 1
   widthPadding: 30
 --- !u!61 &5016509364002585802
 BoxCollider2D:

@@ -7,24 +7,27 @@ public class Obstacles : MonoBehaviour
 {
     
     public float highPosY = 1f;
-    public float lowPosY = -9f;
+    public float lowPosY = -1f;
 
     // 파이프 위아래 사이 간격 최대/최소
-    public float holdSizeMin = 5f;
-    public float holdSizeMax = 9f;
+    public float holdSizeMin = 1f;
+    public float holdSizeMax = 3f;
 
     // 파이프 양옆 간격 최대/최소
-    public float minWidthPadding = 8f;
-    public float maxWidthPadding = 12f;
+    public float minWidthPadding = 4f;
+    public float maxWidthPadding = 10f;
 
     // 파이프 위아래
     public Transform topPipe_Purple;
-    //public Transform topPipe_Yellow;
+    
     public Transform bottomPipe_Purple;
-    //public Transform bottomPipe_Yellow;
 
-    //퍼플/노랑 번갈아가면서
-    public bool isPurple = true;
+    // 노란파이프(미구현)
+    //public Transform bottomPipe_Yellow;
+    //public Transform topPipe_Yellow;
+
+    //퍼플/노랑 번갈아가면서 출현 (구현 예정)
+    // public bool isPurple = true;
 
 
     public float widthPadding = 10f;
@@ -34,14 +37,7 @@ public class Obstacles : MonoBehaviour
     {
         float holeSize = Random.Range(holdSizeMin, holdSizeMax);
         float halfHoleSize = holeSize / 2f;
-        //if (isPurple)
-       // {
-           // topPipe_Yellow.localPosition = new Vector3(0, halfHoleSize);
-           // bottomPipe_Yellow.localPosition = new Vector3(0, -halfHoleSize);
-            //isPurple = false;
-        //}
-       
-        
+           
             topPipe_Purple.localPosition = new Vector3(0, halfHoleSize);
             bottomPipe_Purple.localPosition = new Vector3(0, -halfHoleSize);
         
@@ -59,5 +55,14 @@ public class Obstacles : MonoBehaviour
 
         return pipePosition;
 
+
+
+        // 구현예정(보라-노랑 번갈아가며 출현) 
+        //if (isPurple)
+        // {
+        // topPipe_Yellow.localPosition = new Vector3(0, halfHoleSize);
+        // bottomPipe_Yellow.localPosition = new Vector3(0, -halfHoleSize);
+        //isPurple = false;
+        //}
     }
 }
