@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MiniGameExplainUI : BaseUI
 {
+    [SerializeField] private Button startBtn;
+
     protected override UIState GetUIState()
     {
-        throw new System.NotImplementedException();
+        return UIState.MiniGameExplain;
     }
 
     public override void Init(UIManager uiManager)
     {
         base.Init(uiManager);
+
+        startBtn = transform.Find("StartBtn").GetComponent<Button>();
+        startBtn.onClick.AddListener(OnClickStartButton);
     }
 
 
     // 미니게임 시작 버튼
-    public void MiniStartButton() { }
+    void OnClickStartButton()
+    {
+        uiManager.MiniGameStart();
+    }
 
-    // 미니게임 시작 화면으로 나가기
-
+   
 }
