@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SocialPlatforms.Impl;
 
 
 public enum UIState
@@ -47,7 +48,10 @@ public class UIManager : MonoBehaviour
 
     // 점수, 최고점수
     public Text ScoreText;
+    public Text GameOverScoreText;
     public TextMeshProUGUI BestScoreText;
+
+    private int score = 0;
 
 
     // 싱글톤
@@ -158,6 +162,7 @@ public class UIManager : MonoBehaviour
     public void MiniGameOver() 
     {
         ChangeState(UIState.MiniGameOver);
+        
     }
 
     // 미니게임 종료 - 하우스씬으로 다시 돌아감
@@ -175,6 +180,17 @@ public class UIManager : MonoBehaviour
     // ui에 점수 업데이트 반영
     public void UpdateScore(int score)
     {
+        
         ScoreText.text = score.ToString();
+        GameOverScoreText.text = score.ToString();
+
+    }
+
+    // 베스트 스코어 저장
+    public void UpdateBestScore()
+    {
+
+        int bestScore = PlayerPrefs.GetInt("Best Score", 0);
+        BestScoreText.text = bestScore.ToString();
     }
 }
