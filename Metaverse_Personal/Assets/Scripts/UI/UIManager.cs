@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public enum UIState
@@ -45,7 +46,7 @@ public class UIManager : MonoBehaviour
     private UIState currentState;
 
     // 점수, 최고점수
-    public TextMeshProUGUI ScoreText;
+    public Text ScoreText;
     public TextMeshProUGUI BestScoreText;
 
 
@@ -105,6 +106,7 @@ public class UIManager : MonoBehaviour
             miniGameOverUI.Init(this);
 
             ChangeState(UIState.MiniGameHome);
+            Time.timeScale = 0;
         }
     }
 
@@ -142,6 +144,7 @@ public class UIManager : MonoBehaviour
     // 미니게임 시작을 누르면 뜨는 UI (게임 중 ui)
     public void MiniGameStart() 
     {
+        Time.timeScale = 1;
         ChangeState(UIState.MiniGame);
     }
 

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
 
         isGameOver = false;
+        Time.timeScale = 0;
     }
 
     private int currentScore = 0;
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
         
            
             uiManager.MiniGameOver();
+        
+        Time.timeScale = 0;
        
 
     }
@@ -39,6 +42,7 @@ public class GameManager : MonoBehaviour
     public void GameRestart()
     {
         uiManager.MiniGameStart();
+        Time.timeScale = 1;
 
     }
 
