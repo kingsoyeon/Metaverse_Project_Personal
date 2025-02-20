@@ -21,4 +21,14 @@ public class Loop : MonoBehaviour
         }
     }
 
+   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // 충돌했을때 파이프라면
+        Obstacles pipe = collision.GetComponent<Obstacles>();
+        if (pipe)
+        {
+            pipeLastPosition = pipe.RandomPipe(pipeLastPosition, pipeCount);
+        }
+    }
 }
