@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
 
         isGameOver = false;
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     private int currentScore = 0;
