@@ -139,7 +139,7 @@ public class UIManager : MonoBehaviour
     public void MiniGameHome() 
     {
         ChangeState(UIState.MiniGameHome);
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
     }
 
     // 메인 관련 UI

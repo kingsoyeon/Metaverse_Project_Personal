@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MiniGameOverUI : BaseUI
@@ -37,7 +38,7 @@ public class MiniGameOverUI : BaseUI
     // 미니게임 재시작 버튼
     public void OnClickReStartButton() 
     {
-        uiManager.MiniGameStart();
+        SceneManager.LoadScene("MiniGameScene");
     }
 }
     
