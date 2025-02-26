@@ -40,21 +40,29 @@ public class SleepUI : BaseUI
             {
                 sleepUI.SetActive(true);
             }
+            else { sleepUI.SetActive(false); }
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player")) 
-        { 
-            sleepUI.SetActive(false);
-            // 초기화
-            isNo = false;
-        }
-    }
+    // 수정예정
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (SceneManager.GetActiveScene().name == "HouseScene")
+    //    {
+    //        if (collision.CompareTag("Player"))
+    //        {
+    //            sleepUI.SetActive(false);
+    //            초기화
+    //           isNo = false;
+    //        }
+    //    }
+    //}
 
     // yes 버튼 -> 미니게임씬으로 전환
-    public void OnYesButton() { SceneManager.LoadScene("MiniGameScene"); }
+    public void OnYesButton() 
+    { 
+        SceneManager.LoadScene("MiniGameScene"); 
+        Time.timeScale = 0f;
+    }
 
     // NO 버튼 -> UI 비활성화 (no 버튼을 누르기 전까지)
     public void OnNoButton() 

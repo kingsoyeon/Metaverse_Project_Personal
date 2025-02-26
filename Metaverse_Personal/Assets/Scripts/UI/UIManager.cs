@@ -110,7 +110,7 @@ public class UIManager : MonoBehaviour
             miniGameOverUI.Init(this);
 
             ChangeState(UIState.MiniGameHome);
-            Time.timeScale = 0;
+            
         }
     }
 
@@ -139,6 +139,7 @@ public class UIManager : MonoBehaviour
     public void MiniGameHome() 
     {
         ChangeState(UIState.MiniGameHome);
+        Time.timeScale = 0;
     }
 
     // 메인 관련 UI
@@ -148,7 +149,7 @@ public class UIManager : MonoBehaviour
     // 미니게임 시작을 누르면 뜨는 UI (게임 중 ui)
     public void MiniGameStart() 
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         ChangeState(UIState.MiniGame);
     }
 
@@ -161,6 +162,7 @@ public class UIManager : MonoBehaviour
     // 미니게임 오버됐을 때 UI (스코어, 최고점수, 다시하기, 종료)
     public void MiniGameOver() 
     {
+        Time.timeScale = 0;
         ChangeState(UIState.MiniGameOver);
         
     }
@@ -169,12 +171,14 @@ public class UIManager : MonoBehaviour
     public void MiniGameExit() 
     {
         SceneManager.LoadScene("HouseScene");
+        Time.timeScale = 1f;
     }
 
     // 미니게임 재시작 - 미니게임시작됨
     public void MiniGameReStart()
     {
         ChangeState(UIState.MiniGame);
+        Time.timeScale = 1f;
     }
 
     // ui에 점수 업데이트 반영
